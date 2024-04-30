@@ -36,7 +36,7 @@ async function main() {
         const logs = await client.getFilterLogs({ filter });
         // 遍历日志
         logs.forEach((log) => {
-            console.log(`从 ${log.args[0]} 转账给 ${log.args[1]} ${log.args[2]! / BigInt(1e6)}USDC, 交易ID:${log.transactionHash}` )
+            console.log(`从 ${log.args[0]} 转账给 ${log.args[1]} ${log.args[2]! / BigInt(1e6)} USDC, 交易ID:${log.transactionHash}` )
         });
 
         // 获取最新区块和更新开始区块和结束区块
