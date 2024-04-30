@@ -1,8 +1,0 @@
-{
-  "sepolia": {
-    "MusicNFT": {
-      "address": "0x88B74476014D4EecAd6762ccCfB34Cf59F47E76e",
-      "startBlock": 5795342
-    }
-  }
-}
