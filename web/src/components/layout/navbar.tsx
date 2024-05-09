@@ -20,7 +20,7 @@ export default function Navbar() {
 
   return (
     <header>
-      <div className="navbar bg-base-100 bg-transparent">
+      <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -61,9 +61,9 @@ export default function Navbar() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>
+              <Link href="/mkt">
                 <BuildingStorefrontIcon className="h-6 w-6" /> Market
-              </a>
+              </Link>
             </li>
             {isConnected && (
               <li>

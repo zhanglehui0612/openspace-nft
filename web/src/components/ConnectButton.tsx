@@ -1,9 +1,10 @@
+import { useEffect } from "react";
+import { useAccount } from "wagmi";
+
 export default function ConnectButton() {
   return (
-    <div className="flex gap-[10px] items-center">
-      <div>
-        <w3m-button />
-      </div>
-    </div>
+    <>
+      <w3m-button />
+    </>
   );
 }
