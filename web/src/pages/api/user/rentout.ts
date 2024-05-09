@@ -42,12 +42,12 @@ function verifyingOrder(
 ): Promise<boolean> {
   // TODO: 验证订单签名
   return verifyTypedData(wagmiConfig,{
-    chainId: chainId,
+    chainId,
     domain: PROTOCOL_CONFIG[chainId].domain,
     types: eip721Types,
     message: order,
     primaryType: "RentoutOrder",
     address: order.maker,
-    signature: signature
+    signature
   });
 }

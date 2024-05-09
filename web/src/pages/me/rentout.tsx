@@ -69,15 +69,6 @@ export default function Rentout() {
       // 获取 NFT 基本信息
       const oneday = 24 * 60 * 60;
       const order = {
-        nftCA: selectedNft.ca,
-        tokenId: selectedNft.tokenId,
-        dailyRent: dailyRentRef.current?.value,
-        maxRentalDuration: maxRentalDurationRef.current?.value,
-        minCollateral: collateralRef.current?.value,
-        listEndTime: listLifetimeRef.current?.value,
-      };
-      console.log(order);
-      const response = await fetch("/api/listing", {
         maker: userWallet!,
         nft_ca: selectedNft.ca,
         token_id: BigInt(selectedNft.tokenId),
@@ -86,14 +77,16 @@ export default function Rentout() {
           Number(maxRentalDurationRef.current!.value) * oneday
         ),
         min_collateral: parseUnits(collateralRef.current!.value, 18),
-        list_endtime: BigInt(Math.ceil(Date.now() / 1000) + Number(listLifetimeRef.current!.value) * oneday
-        )
-      }) ;
-      // as RentoutOrderMsg
+        list_endtime: BigInt(
+          Math.ceil(Date.now() / 1000) +
+          Number(listLifetimeRef.current!.value) * oneday
+        ),
+      } as RentoutOrderMsg;
+      
       // TODO 请求钱包签名，获得签名信息
-      const signature = await signTypedData(config,{
+      const signature = await signTypedData(config, {
         connector,
-        domain: PROTOCOL_CONFIG[chainId!].domain,
+        domain: PROTOCOL_CONFIG[chainId].domain,
         types: eip721Types,
         primaryType: "RentoutOrder",
         message: order

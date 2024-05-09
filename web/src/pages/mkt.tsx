@@ -4,6 +4,7 @@ import { RentoutOrderEntry } from "@/types";
 
 export default function MarketListing() {
   const listResponse = useFethcMarketListing();
+  console.log("FethcMarketListing", listResponse)
   return (
     <>
       <h1 className="text-center text-3xl p-4">Market Listing</h1>
